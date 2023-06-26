@@ -13,7 +13,7 @@ df = pd.read_csv("Clustered_Customer_Data.csv")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.markdown('<style>body{background-color: Blue;}</style>',unsafe_allow_html=True)
-st.title("Prediction")
+st.title("Cluster Prediction")
 
 with st.form("my_form"):
     balance=st.number_input(label='Balance',step=0.001,format="%.6f")
@@ -42,13 +42,13 @@ if submitted:
     clust=loaded_model.predict(data)[0]
     print('Data Belongs to Cluster',clust)
 
-    cluster_df1=df[df['Cluster']==clust]
-    plt.rcParams["figure.figsize"] = (20,3)
-    for c in cluster_df1.drop(['Cluster'],axis=1):
-        fig, ax = plt.subplots()
-        grid= sns.FacetGrid(cluster_df1, col='Cluster')
-        grid= grid.map(plt.hist, c)
-        plt.show()
-        st.pyplot(figsize=(5, 5))
+    #cluster_df1=df[df['Cluster']==clust]
+    #plt.rcParams["figure.figsize"] = (20,3)
+    #for c in cluster_df1.drop(['Cluster'],axis=1):
+     #   fig, ax = plt.subplots()
+      #  grid= sns.FacetGrid(cluster_df1, col='Cluster')
+       # grid= grid.map(plt.hist, c)
+        #plt.show()
+        #st.pyplot(figsize=(5, 5))
 
 
