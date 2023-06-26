@@ -40,8 +40,7 @@ with st.form("my_form"):
 
 if submitted:
     clust=loaded_model.predict(data)[0]
-    st.markdown('Data Belongs to Cluster',clust)
-
+    st.markdown(f"Data Belongs to Cluster {clust}")
     cluster_df1=df[df['Cluster']==clust]
     plt.figure(figsize=(20,3))
     for c in cluster_df1.drop(['Cluster'],axis=1):
